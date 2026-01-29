@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>User Settings: {{ user.username }}</h2>
+    <p><strong>Current Balance:</strong> ${{ "{:,.2f}".format(user.cash) }}</p>
+    
+    <hr>
+    <h3>Preferences</h3>
+    <form method="POST">
+        <input type="hidden" name="action" value="theme">
+        <label>Select Theme:</label>
+        <select name="theme" onchange="this.form.submit()">
+            <option value="light" {{ 'selected' if user.theme == 'light' }}>Light Mode</option>
+            <option value="dark" {{ 'selected' if user.theme == 'dark' }}>Dark Mode</option>
+        </select>
+    </form>
+
+    <hr>
+    <h3 style="color: #e74c3c;">Danger Zone</h3>
+    <p>Resetting will delete all trade history and restore your cash to $10,000.</p>
+    <form method="POST" onsubmit="return confirm('Are you absolutely sure?');">
+        <input type="hidden" name="action" value="reset">
+        <button type="submit" style="background: #e74c3c;">Reset My Account</button>
+    </form>
+</div>
+{% endblock %}

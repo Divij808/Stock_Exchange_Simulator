@@ -1,0 +1,78 @@
+<Style>
+    .card {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    background: var(--card);
+
+    padding: 20px; border-radius: 8px;
+}
+</Style>
+
+<div style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #1a1a1a;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('{{ url_for('static', filename='home_page_bg.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+"></div>
+
+<div style="min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+
+    <div class="card" style="
+        padding: 50px;
+        max-width: 1150px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 28px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    ">
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 60px; flex-wrap: wrap;">
+
+            <div style="flex: 1.2; text-align: left; min-width: 320px;">
+                <h1 style="font-size: 3.2rem; margin-bottom: 10px; color: #1e272e; font-weight: 800; line-height: 1.1;">Welcome to Trade Craft</h1>
+                <p style="font-size: 1.3rem; color: #485460; margin-bottom: 35px;">Master the markets with our real-time stock exchange simulator.</p>
+
+                <div style="margin-top: 20px;">
+
+                        <p style="margin-bottom: 25px; font-size: 1.1rem; color: #2f3542;">Start practicing with <strong>$10,000</strong> in virtual currency.</p>
+                        <div style="display: flex; gap: 15px;">
+                            <a href="{{ url_for('register') }}"><button style="background: #3498db; color: white; border: center; padding: 12px 28px; border-radius: 8px; font-weight: 600; cursor: pointer;">Get Started</button></a>
+                        </div>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 320px; display: flex; justify-content: center;">
+                <img src="{{ url_for('static', filename='TradeCraft.png') }}"
+                     alt="Trade Craft Visual"
+                     style="width: 100%; max-width: 550px; height: auto; filter: drop-shadow(10px 15px 30px rgba(0,0,0,0.2));">
+            </div>
+
+        </div>
+
+        <hr style="margin: 50px 0; border: 0; border-top: 1px solid #dfe4ea;">
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; text-align: left; gap: 40px;">
+            <div style="flex: 1; min-width: 250px;">
+                <h4 style="color: #2f3542; font-size: 1.2rem; margin-bottom: 10px;">📈 Live Prices</h4>
+                <p style="font-size: 0.95rem; color: #57606f; line-height: 1.6;">Access real-time data from global markets to make informed, data-driven decisions.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <h4 style="color: #2f3542; font-size: 1.2rem; margin-bottom: 10px;">📰 Market News</h4>
+                <p style="font-size: 0.95rem; color: #57606f; line-height: 1.6;">Stay current with live news feeds integrated directly into your trading dashboard.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <h4 style="color: #2f3542; font-size: 1.2rem; margin-bottom: 10px;">💰 Risk Free</h4>
+                <p style="font-size: 0.95rem; color: #57606f; line-height: 1.6;">Hone your skills and test complex strategies without risking a penny of real capital.</p>
+            </div>
+        </div>
+    </div>
+</div>

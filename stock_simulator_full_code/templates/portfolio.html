@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>Your Portfolio</h2>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <span><strong>Cash:</strong> ${{ "{:,.2f}".format(cash) }}</span>
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="border-bottom: 2px solid #ddd; text-align: left;">
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Market Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr style="border-bottom: 1px solid #eee;">
+                <td><strong>{{ stock.symbol }}</strong></td>
+                <td>{{ stock.shares }}</td>
+                <td>${{ "{:,.2f}".format(stock.price) }}</td>
+                <td>${{ "{:,.2f}".format(stock.val) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if not stocks %}
+        <p style="text-align: center; margin-top: 20px;"> Your portfolio is empty. Time to trade!</p>
+    {% endif %}
+</div>
+{% endblock %}

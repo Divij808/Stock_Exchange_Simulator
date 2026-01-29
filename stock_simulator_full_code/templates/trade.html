@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card" style="max-width: 500px; margin: auto;">
+    <h2>Execute Trade</h2>
+    <form method="POST">
+        <label>Ticker Symbol:</label>
+        <input type="text" name="symbol" placeholder="e.g. AAPL" required>
+
+        <label>Quantity:</label>
+        <input type="number" name="shares" min="1" step="1" required>
+
+        <label>Transaction Type:</label>
+        <select name="trade_action" id="trade_action" required>
+            <option value="buy"> Buy Shares</option>
+            <option value="sell"> Sell Shares</option>
+        </select>
+        <br><br>
+
+        <button type="submit" style="width: 100%; margin-top: 10px;"> Submit Order</button>
+    </form>
+    <p style="font-size: 0.8em; color: #666; margin-top: 10px;">
+        Tip: Check the <a href="{{ url_for('research') }}"> Research page</a> for live pricing.
+    </p>
+</div>
+{% endblock %}

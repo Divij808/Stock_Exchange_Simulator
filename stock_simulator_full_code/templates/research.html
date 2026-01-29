@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card">
+    <h2>Market Research</h2>
+    <form method="POST" style="display: flex; gap: 10px;">
+        <input type="text" name="symbol" placeholder="Enter Ticker (e.g. MSFT)" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if data %}
+    <div style="margin-top: 20px; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        <h3>{{ data.name }} ({{ data.symbol }})</h3>
+        <p style="font-size: 2em; margin: 10px 0;">${{ "{:,.2f}".format(data.price) }}</p>
+        <a href="{{ url_for('trade') }}"><button style="background: #27ae60;">Trade this Stock</button></a>
+    </div>
+
+    <h4>Latest News</h4>
+    <div class="news-feed">
+        {% for item in news %}
+        <div style="margin-bottom: 15px; border-left: 4px solid #3498db; padding-left: 10px;">
+            <a href="{{ item.link }}" target="_blank" style="text-decoration: none; color: var(--text);">
+                <strong>{{ item.title }}</strong>
+            </a>
+            <p style="font-size: 0.8em; color: #888; margin: 5px 0;">Source: {{ item.publisher }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
