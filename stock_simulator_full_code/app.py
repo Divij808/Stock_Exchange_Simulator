@@ -8,6 +8,12 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
+def is_valid_price(price):
+    try:
+        price = float(price)
+        return True if price >= 0 else False
+    except (ValueError, TypeError):
+        return False
 
 
 # Database Connection Helper
