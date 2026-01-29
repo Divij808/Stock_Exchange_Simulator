@@ -11,7 +11,7 @@ app.secret_key = os.urandom(24)
 def price_is_valid(price):
     try:
         price = float(price)
-        return true if price >= 0 else false
+        return True if price >= 0 else False
     except (ValueError, TypeError):
         return False
 
